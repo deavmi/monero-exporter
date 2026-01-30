@@ -12,7 +12,7 @@ FROM $BUILDER_IMAGE as builder
         COPY pkg/     pkg/
         COPY cmd/     cmd/
 
-        RUN set -x && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on \
+        RUN set -x && CGO_ENABLED=0 GOOS=linux GO111MODULE=on \
                 go build -a -v \
 			-trimpath \
 			-tags osusergo,netgo,static_build \
